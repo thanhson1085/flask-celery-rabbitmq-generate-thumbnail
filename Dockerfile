@@ -4,7 +4,7 @@ MAINTAINER Nguyen Sy Thanh Son <thanhson1085@gmail.com>
 
 RUN \
     apt-get update && \
-    apt-get install -y python-pip python-virtualenv rabbitmq-server
+    apt-get install -y python-pip python-virtualenv rabbitmq-server python-dev
 
 WORKDIR /build
 ADD . /build
