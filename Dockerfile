@@ -9,7 +9,7 @@ RUN \
 WORKDIR /build
 ADD . /build
 RUN \
-    virtualenv -p /usr/bin/python3 env && \
+    virtualenv -p /usr/bin/python env && \
     . env/bin/activate && \
     pip install PIL --allow-external PIL --allow-unverified PIL && \
     sudo pip install -r requrements.txt
