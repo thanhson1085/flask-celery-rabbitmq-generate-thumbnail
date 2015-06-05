@@ -1,5 +1,14 @@
 If you are learning the way how to work with RABBITMQ + CELERY. This source code may help you.
 
+This source code supports 2 ways to run it.
+
+1. Using Docker
+```
+sudo docker build -t thanhson1085/flask-celery-rabbitmq-generate-thumbnail .
+sudo docker run -i -t -p 5000:5000 thanhson1085/flask-celery-rabbitmq-generate-thumbnail
+```
+
+2. Install packets normally
 I will show you how to run this source code from scratch. And i am using ubuntu server 14.04, installed virtualenv, pip.
 
 Install RabbitMQ Server:
