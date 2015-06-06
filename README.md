@@ -5,15 +5,15 @@ This source code supports 2 ways to run it.
 1. Using Docker
 Build from Dockerfile
 ```
-sudo docker build -t thanhson1085/flask-celery-rabbitmq-generate-thumbnail .
+sudo docker build -t thanhson1085/flask-celery-rabbitmq-example .
 ```
 Or pull from Docker Repo
 ```
-sudo docker pull thanhson1085/flask-celery-rabbitmq-generate-thumbnail
+sudo docker pull thanhson1085/flask-celery-rabbitmq-example
 ```
 Run Docker image
 ```
-sudo docker run -i -t -p 5000:5000 thanhson1085/flask-celery-rabbitmq-generate-thumbnail
+sudo docker run -i -t -p 5000:5000 thanhson1085/flask-celery-rabbitmq-example
 ```
 
 2. Install packets normally (Ubuntu 14.04)
