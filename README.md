@@ -2,6 +2,11 @@ If you are learning the way how to work with RABBITMQ + CELERY. This source code
 
 This source code supports 2 ways to run it.
 
+At the first, clone this source code to your local:
+```
+git clone https://github.com/thanhson1085/flask-celery-rabbitmq-generate-thumbnail.git
+```
+
 1. Using Docker
 Build from Dockerfile
 ```
@@ -29,11 +34,6 @@ Fix the issue of PIL
 ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib
 ```
 
-Clone this source code to your local:
-```
-git clone https://github.com/thanhson1085/flask-celery-rabbitmq-generate-thumbnail.git
-```
-
 Create environment to run the application with virtualenv:
 ```
 cd flask-celery-rabbitmq-generate-thumbnail
@@ -44,16 +44,16 @@ source env/bin/activate
 Install all packets required:
 ```
 pip install -r requirement.txt
-pip install --allow-external PIL
+pip install PIL --allow-external PIL --allow-unverified PIL
 ```
 
 Run web server to upload files
 ```
-./server_celery.py
+python ./server_celery.py
 ```
 Run the "generate thumbnail" task in Celery
 ```
-./generate_thumbnail_celery
+celery worker -A generate_thumbnail_celery -l INFO
 ```
 
 Now, it is ready for testing.
