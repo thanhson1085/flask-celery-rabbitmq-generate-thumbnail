@@ -4,15 +4,17 @@ MAINTAINER Nguyen Sy Thanh Son <thanhson1085@gmail.com>
 
 RUN \
     apt-get update && \
-    apt-get install -y python-pip python-virtualenv rabbitmq-server python-dev
+    apt-get install -y python-pip rabbitmq-server python-dev
 
+RUN apt-get install -y supervisor
+RUN apt-get install -y libjpeg-dev
+
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 WORKDIR /build
-ADD . /build
+COPY . /build
 RUN \
-    virtualenv -p /usr/bin/python env && \
-    . env/bin/activate && \
     pip install PIL --allow-external PIL --allow-unverified PIL && \
     sudo pip install -r requrements.txt
 
-CMD python server_celery.py
-CMD celery worker -A generate_thumbnail_celery -l INFO
+ENV C_FORCE_ROOT "true"
+CMD ["/usr/bin/supervisord"]
